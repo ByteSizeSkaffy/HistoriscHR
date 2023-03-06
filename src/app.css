@@ -1,0 +1,87 @@
+.body{
+size:100%
+}
+.mapgrid{
+  border-radius: 200px;
+  min-height: fit-content;
+  background-color: #f6dc58;
+}
+.mapgrid2{
+  border-radius:100px;
+  min-height:fit-content;
+  background-color: #eba345;
+}
+.mapgrid3{
+  background-color: #565458;
+  min-height: fit-content;
+  border-radius: 400px;
+}
+
+
+.main{
+  float:right; 
+  overflow-x: auto;
+  min-height: fit-content;
+  padding-bottom: 20px;
+  size: 40%;
+  max-width: 70%;
+  border-radius: 200px;
+  transition: ease 0.5s;
+}
+.main:hover{
+  overflow: hidden;
+  padding-bottom: 2px;
+  float: right;
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 20px;
+  transition: ease 0.5s;
+ }
+
+
+.last{
+ overflow: hidden;
+ padding-bottom: 20px;
+ float: left;
+ max-width: 70%;
+ max-height: 70%;
+ border-radius: 200px;
+ transition: ease 0.5s;
+}
+.last:hover{
+  overflow: hidden;
+  padding-bottom: 2px;
+  float: left;
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 20px;
+  transition: ease 0.5s;
+ }
+.next{
+  overflow: hidden;
+  padding-bottom: 20px;
+  float: left;
+  max-width: 70%;
+  border-radius: 200px;
+  transition: ease 0.5s;
+}
+.next:hover{
+  overflow: hidden;
+  padding-bottom: 2px;
+  float: left;
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 20px;
+  transition: ease 0.5s;
+ }
+.maptitle{
+  size: 20rem;
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 20%;
+  padding-top: 20%;
+  float: middle;
+  color: #ffffff;
+  background-color: #d7dce823;
+  border-radius: 25px;
+}
