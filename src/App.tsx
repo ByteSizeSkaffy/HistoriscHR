@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import image1 from './images/maps/1936.jpg';
 import image2 from './images/maps/1920.jpg';
 import image3 from './images/maps/1903.jpg';
 import './app.css';
 
-function bar(){
-  const helo="helo"
+const bar = (event:React.FormEvent<HTMLInputElement>) => {
+  const source=[image1,image2,image3];
+  console.log("yes");
+  
 }
 
 function App() { 
@@ -30,7 +32,7 @@ function App() {
       <img className="main" src={image1} alt="loading...." id="test"/>
       <h3 className='maptitle'> bartest</h3>
       <div className="slidecontainer">
-        <input type="range" min="1" max="5" className="slider" id="myRange"/>
+        <input type="range" min="1" max="3" className="slider" id="myRange" onInput={bar}/>
       </div>
       </div>
     </div>
