@@ -1,7 +1,7 @@
 import image1 from './images/maps/1936.jpg';
 import image2 from './images/maps/1920.jpg';
 import image3 from './images/maps/1903.jpg';
-import {useEffect, useRef,useState} from "react";
+import {useRef,useState} from "react";
 import './app.css';
 
 function Bar(){
