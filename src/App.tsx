@@ -6,7 +6,34 @@ import './app.css';
 
 
 function App() {
+  const [map, setMap] = useState(false);
+  const [map2, setMap2] = useState(false);
+  const [map3, setMap3] = useState(false);
+  if(map === true){
+    return (
+      <div className="App">
+        <div className="mapgridbackground">
+        <div className="mapgrid3">
+          <div className="mapgrid2">
+          <div className="mapgrid">
   
+          <img className="firstmapclicked" src={image1} onClick ={()=>setMap(!map)} alt="loading...." />
+          <div className='maptitle'> 1936</div>
+          
+          </div>
+          <img className="middlemap" src={image2} alt="loading...." />
+          <div className='maptitle'> 1920</div>
+          
+          </div>
+          <img className="lastmap" src={image3} alt="loading...." />
+          <div className='maptitle'> 1903</div>
+  
+        </div>
+      </div>
+    </div>
+    );
+  }
+  else{
   return (
     <div className="App">
       <div className="mapgridbackground">
@@ -14,21 +41,21 @@ function App() {
         <div className="mapgrid2">
         <div className="mapgrid">
 
-        <img className="firstmap" src={image1} alt="loading...." />
+        <img className="firstmap" src={image1} onClick ={()=>setMap(!map)} alt="loading...." />
         <div className='maptitle'> 1936</div>
-        
         </div>
+
         <img className="middlemap" src={image2} alt="loading...." />
         <div className='maptitle'> 1920</div>
-        
         </div>
+
         <img className="lastmap" src={image3} alt="loading...." />
         <div className='maptitle'> 1903</div>
-
+        </div>
       </div>
     </div>
-  </div>
-);
+    );
+  }
 }
 
 export default App;
