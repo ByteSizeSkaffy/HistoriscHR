@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef,useState } from 'react';
 import image1 from './images/maps/1936.jpg';
 import image2 from './images/maps/1920.jpg';
 import image3 from './images/maps/1903.jpg';
