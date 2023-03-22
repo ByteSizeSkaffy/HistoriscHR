@@ -1,3 +1,4 @@
+
 .body{
 size:100%
 }
@@ -6,12 +7,21 @@ size:100%
   padding-left: 0.5rem;
 }
 .mapgrid{
+  box-shadow:  -2px 30px 19px 1px rgba(81, 72, 20, 0.655);
   border-radius: 10rem;
-  height: 38rem;
+  height: 40rem;
   background-color: #f6dc58;
   transition: ease 1s;
 }
 .mapgrid:hover{
+  box-shadow:  -2px 24px 19px 1px rgba(93, 84, 34, 0.448);
+  border-radius: 10rem;
+  height: 44rem;
+  background-color: #f6dc58;
+  transition: ease 1s;
+}
+.mapgridfixed{
+  box-shadow:  -2px 10px 19px 1px rgb(150, 138, 66);
   border-radius: 10rem;
   height: 44rem;
   background-color: #f6dc58;
@@ -21,17 +31,43 @@ size:100%
   size: 20rem;
   font-size: 2rem;
   font-weight: bold;
-  padding: 40.5rem 0rem 0rem 45rem;
+  padding: 40.5rem 0rem 0rem 35rem;
   float: middle;
   color: #ffffff;
   border-radius: 25px;
   transition: ease 1s;
 }
 
+.fixedmaptitle1{
+  size: 20rem;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 40.5rem 0rem 0rem 47rem;
+  float: middle;
+  color: #ffffff;
+  border-radius: 25px;
+  transition: ease 1s;
+}
 .mapgrid2{
+  box-shadow:  -2px 2rem 21px 7px rgb(102, 62, 38);
   border-radius:5rem;
-  height: 80rem;
+  height: 84rem;
   background-color: #eba345;
+  transition: ease 1s;
+}
+.fixedmapgrid2{
+  box-shadow:  -2px 22px 21px 7px rgba(87,54,35,1);
+  border-radius: 5rem;
+  height: 86rem;
+  background-color: #eba345;
+  transition: ease 1s;
+}
+.mapgrid2:hover{
+  box-shadow:  -2px 22px 21px 7px rgba(87,54,35,1);
+  border-radius: 5rem;
+  height: 86rem;
+  background-color: #eba345;
+  transition: ease 1s;
 }
 .mapgrid3{
   background-color: #565458;
@@ -41,19 +77,21 @@ size:100%
 }
 
 .firstmapclicked{
+  box-shadow: -2px 22px 19px -10px rgb(164, 161, 76);
   overflow: hidden;
   position: absolute;
-  margin: 2rem 0rem 0rem 5rem;
+  margin: 1rem 0rem 0rem 8.5rem;
   float: middle;
   transition: ease 0.5s;
   max-width: 80%;
   max-height: 80%;
   border-radius: 9rem;
   transition: ease 0.5s;
-  cursor: grab;
+  cursor:pointer;
 }
 
 .firstmap{
+ box-shadow:  -2px 24px 19px 1px rgba(87,79,36,1);
  overflow: hidden;
  position: absolute;
  margin: 2rem 0rem 0 0rem;
@@ -62,32 +100,49 @@ size:100%
  max-height: 70%;
  border-radius: 14rem;
  transition: ease 0.5s;
+ 
 }
 .firstmap:hover{
+  box-shadow: -2px 20px 19px -10px rgba(87,79,36,1);
   overflow: hidden;
   float: left;
   max-width: 75%;
   max-height: 75%;
   border-radius: 9rem;
   transition: ease 0.5s;
-  cursor: grab;
+  cursor:pointer;
  }
-
  .middlemap{
+  box-shadow:  -60px 16px 19px 1px rgba(87,79,36,1);
   float:right;
-  margin: 1rem 2rem 0 0;
+  margin: 2rem 2rem 0 0;
   padding-right:1rem;
   size: 40%;
   max-width: 70%;
-  max-height: 40%;
+  max-height: 70%;
   border-radius: 12rem;
   transition: ease 0.5s;
+  cursor:pointer;
 }
 .middlemap:hover{
+  box-shadow:  -60px 16px 19px 1px rgba(87,79,36,1);
   float: right;
-  max-width: 80%;
+  margin: 2rem 3rem 0 0;
+  max-height: 75%;
+  max-width: 75%;
   border-radius: 7rem;
   transition: ease 0.5s;
+  cursor:pointer;
+ }
+ .fixedmiddlemap{
+  box-shadow:  -2px 24px 19px 1px rgba(87,79,36,1);
+  float: right;
+  margin: 4rem 10rem 0 0;
+  max-height: 75%;
+  max-width: 75%;
+  border-radius: 7rem;
+  transition: ease 0.5s;
+  cursor:pointer;
  }
  .lastmap{
   overflow: hidden;
@@ -113,6 +168,16 @@ size:100%
   size: 20rem;
   font-size: 20px;
   font-weight: bold;
+  padding: 37rem 0rem 0rem 35rem;
+  float: middle;
+  color: #ffffff;
+  border-radius: 25px;
+  transition: ease 1s;
+}
+.maptitle2{
+  size: 20rem;
+  font-size: 20px;
+  font-weight: bold;
   padding: 36rem 0rem 0rem 35rem;
   float: middle;
   color: #ffffff;
@@ -128,5 +193,4 @@ size:100%
   float: right;
   color: #ffffff;
   border-radius: 25px;
-
 }
