@@ -1,21 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import Bar from "./bar";
-import Slide from "./Slide"
 import "@picocss/pico";  
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-
-
-
 root.render(
   <React.StrictMode>
     <App />
-    <Slide/>
   </React.StrictMode>
 );
 
