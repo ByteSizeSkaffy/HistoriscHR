@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Frontend from './App';
+import Frontend from './Frontend';
 import "@picocss/pico";  
 import reportWebVitals from './reportWebVitals';
 

@@ -20,7 +20,7 @@ size:100%
   background-color: #f6dc58;
   transition: ease 1s;
 }
-.mapgridfixed{
+.fixedmapgrid{
   box-shadow:  -2px 10px 19px 1px rgb(150, 138, 66);
   border-radius: 10rem;
   height: 44rem;
@@ -38,7 +38,7 @@ size:100%
   transition: ease 1s;
 }
 
-.fixedmaptitle1{
+.fixedmaptitle{
   size: 20rem;
   font-size: 2rem;
   font-weight: bold;
@@ -76,7 +76,7 @@ size:100%
   max-width: 99%;max-height: 99%;
 }
 
-.firstmapclicked{
+.fixedfirstmap{
   box-shadow: -2px 22px 19px -10px rgb(164, 161, 76);
   overflow: hidden;
   position: absolute;

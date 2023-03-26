@@ -15,9 +15,9 @@ function Frontend() {
         <div className="mapgridbackground">
         <div className="mapgrid3">
           <div className="mapgrid2">
-          <div className="mapgridfixed">
+          <div className="fixedmapgrid">
   
-          <img className="firstmapclicked" src={image1} onClick ={()=>setMap(!map)} alt="loading...." />
+          <img className="fixedfirstmap" src={image1} onClick ={()=>setMap(!map)} alt="loading...." />
           <div className='fixedmaptitle1'> 1936</div>
           
           </div>
