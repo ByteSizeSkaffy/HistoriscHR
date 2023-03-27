@@ -3,6 +3,7 @@ import {useState,useRef,useEffect} from 'react';
 import MarkerIMG from "./images/Marker.png";
 import "./Marker.css"
 
+//NIET OP DE AFBEELDINGEN LETTEN
 
 type MarkerProps={
     ImageOld:string;
@@ -17,7 +18,10 @@ const Marker: React.FC<MarkerProps> = ({visible,className,ImageOld, ImageMiddle,
     const MidRef=useRef<HTMLImageElement>(null);
     const NewRef=useRef<HTMLImageElement>(null);
     const ContainerRef=useRef<HTMLDivElement>(null);
-    const SlideRef=useRef<HTMLInputElement>(null)
+    const SlideRef=useRef<HTMLInputElement>(null);
+    const greatRef=useRef<HTMLDivElement>(null);
+    const MarkerRef=useRef<HTMLImageElement>(null);
+
     
     function MapLogic(){
         if((Number(SlideRef.current?.valueAsNumber)<100)){
@@ -36,20 +40,24 @@ const Marker: React.FC<MarkerProps> = ({visible,className,ImageOld, ImageMiddle,
     }
 
     function ShowMaps(){
-        OldRef.current?.classList.toggle("hidden");
-        MidRef.current?.classList.toggle("hidden");
-        NewRef.current?.classList.toggle("hidden");
+        ContainerRef.current?.classList.toggle("hidden");
+        greatRef.current?.classList.toggle("background");
+        MarkerRef.current?.classList.toggle("hidden")
+
     }
     if (visible){
         return(
-            <div className="dispenserContainer" ref={ContainerRef}>
-                <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps}/>
-                <img className="New Img hidden" src={ImageNew} alt="loading" ref={NewRef}/>
-                <img className="Mid Img hidden" src={ImageMiddle} alt="loading" ref={MidRef}/>
-                <img className="Old Img hidden" src={ImageOld} alt="loading" ref={OldRef}/>
-                
-                <div className="slideContainer">
-                    <input className='Slide' type="range" defaultValue={1} min={1} max={300} ref={SlideRef} onInput={MapLogic}/>
+            <div className="great" ref={greatRef}>
+                <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps} ref={MarkerRef}/>
+                <div className="dispenserContainer hidden" ref={ContainerRef}>
+                    <p className="Back" onClick={ShowMaps}>X</p>
+                    <img className="New Img" src={ImageNew} alt="loading" ref={NewRef}/>
+                    <img className="Mid Img" src={ImageMiddle} alt="loading" ref={MidRef}/>
+                    <img className="Old Img" src={ImageOld} alt="loading" ref={OldRef}/>
+                    
+                    <div className="slideContainer">
+                        <input className='Slide' type="range" defaultValue={1} min={1} max={300} ref={SlideRef} onInput={MapLogic}/>
+                    </div>
                 </div>
             </div>
         )

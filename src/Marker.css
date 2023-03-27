@@ -1,13 +1,16 @@
 img.Marker{
     width:20px;
+    position: absolute;
+    left:50%;
+    top:50%;
 }
 
 .Img{
     position: absolute;
-    width: 20%;
+    height: 55%;
     z-index: 100;
-    left:40%;
-    top:30%;
+    left:35%;
+    top:15%;
     transition: opacity 0.5s linear;
     opacity: 100%;
 }
@@ -18,4 +21,41 @@ img.Marker{
 
 .hidden{
     display: none;
+}
+
+.slideContainer{
+    position: absolute;
+    width:70%;
+    bottom:10%;
+    right:15%;
+    overflow: visible;
+}
+
+.dispenserContainer{
+    border-radius: 100px;
+    left:30%;
+    top:20%;
+    position: absolute;
+    background: gray;
+    width:50%;
+    height: 70%;
+}
+
+.great{
+    position: absolute;
+    top:0%;
+    left:0%;
+    height: 100%;
+    width:100%;
+    overflow: hidden;
+}
+.background{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.Back{
+    position: relative;
+    right:-90%;
+    top:5%;
+    color: black;
+    font: bolder;
 }
