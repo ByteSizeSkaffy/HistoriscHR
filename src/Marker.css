@@ -3,6 +3,8 @@ img.Marker{
     position: absolute;
     left:50%;
     top:50%;
+    cursor: pointer;
+    pointer-events: all;
 }
 
 .Img{
@@ -48,9 +50,11 @@ img.Marker{
     height: 100%;
     width:100%;
     overflow: hidden;
+    pointer-events: none;
 }
 .background{
     background-color: rgba(0, 0, 0, 0.7);
+    pointer-events: all;
 }
 .Back{
     position: relative;
@@ -58,4 +62,5 @@ img.Marker{
     top:5%;
     color: black;
     font: bolder;
+    cursor: pointer;
 }
