@@ -9,7 +9,7 @@ size:100%
 .mapgrid{
   box-shadow:  -2px 30px 19px 1px rgba(81, 72, 20, 0.655);
   border-radius: 10rem;
-  height: 44rem;
+  height: 44.5rem;
   background-color: #f6dc58;
   transition: ease 3s;
 }
@@ -30,13 +30,6 @@ size:100%
   border-radius: 25px;
   transition: ease 1s;
 }
-.fixedmapgrid{
-  box-shadow:  -2px 10px 19px 1px rgb(150, 138, 66);
-  border-radius: 10rem;
-  height: 44rem;
-  background-color: #f6dc58;
-  transition: ease 1s;
-}
 .fixedmaptitle{
   size: 20rem;
   font-size: 3rem;
@@ -50,27 +43,20 @@ size:100%
 .mapgrid2{
   box-shadow:  -2px 2rem 21px 7px rgb(102, 62, 38);
   border-radius:5rem;
-  height: 84rem;
-  background-color: #eba345;
-  transition: ease 1s;
-}
-.fixedmapgrid2{
-  box-shadow:  -2px 22px 21px 7px rgba(87,54,35,1);
-  border-radius: 5rem;
-  height: 86rem;
+  height: 90.5rem;
   background-color: #eba345;
   transition: ease 1s;
 }
 .mapgrid2:hover{
   box-shadow:  -2px 22px 21px 7px rgba(87,54,35,1);
   border-radius: 5rem;
-  height: 86rem;
+  height: 94rem;
   background-color: #eba345;
   transition: ease 1s;
 }
 .mapgrid3{
   background-color: #565458;
-  height: 120rem;
+  height: 135rem;
   border-radius: 9rem;
   max-width: 99%;max-height: 99%;
 }
@@ -153,15 +139,17 @@ size:100%
   border-radius: 10rem;;
   transition: ease 0.5s;
 }
-.lastmap:hover{
+.fixedlastmap{
   overflow: hidden;
-  padding-bottom: 2px;
+  margin: 2rem 2rem 0 0;
+  padding-bottom: 20px;
+  padding-left: 1rem;
   float: left;
-  max-width: 70%;
-  max-height: 80%;
-  border-radius: 4rem;
+  max-width: 80%;
+  border-radius: 10rem;;
   transition: ease 0.5s;
- }
+
+}
  
 .maptitle{
   size: 20rem;
@@ -185,7 +173,7 @@ size:100%
 }
 .fixedmaptitle2{
   size: 20rem;
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-weight: bold;
   padding: 38rem 0rem 0rem 40rem;
   float: middle;
@@ -193,13 +181,23 @@ size:100%
   border-radius: 25px;
   transition: ease 1s;
 }
-.middlemaptitle{
+.maptitle3{
   size: 20rem;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: bold;
-  padding-bottom: 20%;
-  padding-top: 20%;
-  float: right;
+  padding: 40rem 0rem 0rem 60rem;
+  float: middle;
   color: #ffffff;
   border-radius: 25px;
+  transition: ease 2s;
+}
+.fixedmaptitle3{
+  size: 20rem;
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 38rem 0rem 0rem 40rem;
+  float: middle;
+  color: #ffffff;
+  border-radius: 25px;
+  transition: ease 1s;
 }
