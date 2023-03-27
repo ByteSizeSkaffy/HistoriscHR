@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState,useRef,useEffect} from 'react';
 import Marker from './ImageMarker';
-import Old from "./images/shits-fucked.gif";
+import Old from "./images/GRNdispenser.png";
 import blu from "./images/Bludispenser.png";
 import Red from "./images/dispenser.png";
 
