@@ -1,5 +1,9 @@
 import React from 'react';
-import {useState} from 'react';
+import {useState,useRef,useEffect} from 'react';
+import Marker from './ImageMarker';
+import Old from "./images/shits-fucked.gif";
+import blu from "./images/Bludispenser.png";
+import Red from "./images/dispenser.png";
 
 type MapProps ={
   imageclassname: string;
@@ -10,11 +14,14 @@ type MapProps ={
 
 const Map: React.FC<MapProps> = ({imageclassname, titleclassname, imagePath, year}) => {
   const [clicked, setClicked] = useState(false);
+  const [isvisible, setVisibility] = useState(false);
 
-  const fix = ()=> setClicked((clicked)=>!clicked);
+
+  const fix = ()=> {setClicked((clicked)=>!clicked); setVisibility(!isvisible)}
   return (
     <div className="map">
       <img className={clicked? "fixed"+imageclassname  : imageclassname } onClick={fix} src={imagePath} alt={imagePath} />
+      <Marker className="Marker" ImageOld={Old} ImageMiddle={blu} ImageNew={Red} visible={isvisible}/>
       <div className={clicked? "fixed"+titleclassname : titleclassname  }>{year}</div>
     </div>
   )
