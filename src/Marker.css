@@ -9,6 +9,11 @@ img.Marker{
     left:40%;
     top:30%;
     transition: opacity 0.5s linear;
+    opacity: 100%;
+}
+
+.opaque{
+    opacity: 0%;
 }
 
 .hidden{

@@ -21,17 +21,17 @@ const Marker: React.FC<MarkerProps> = ({visible,className,ImageOld, ImageMiddle,
     
     function MapLogic(){
         if((Number(SlideRef.current?.valueAsNumber)<100)){
-            OldRef.current?.classList.add("hidden")
-            MidRef.current?.classList.remove("hidden")
+            OldRef.current?.classList.remove("opaque")
+            MidRef.current?.classList.add("opaque")
         }
         else if (Number(SlideRef.current?.valueAsNumber)>=100 && Number(SlideRef.current?.valueAsNumber)<200){
-            OldRef.current?.classList.remove("hidden")
-            MidRef.current?.classList.add("hidden")
-            NewRef.current?.classList.add("hidden")
+            OldRef.current?.classList.add("opaque")
+            MidRef.current?.classList.remove("opaque")
+            NewRef.current?.classList.remove("opaque")
         }
         else if ((Number(SlideRef.current?.valueAsNumber)>=200 && (Number(SlideRef.current?.valueAsNumber)<=300))){
-            NewRef.current?.classList.remove("hidden")
-            OldRef.current?.classList.add("hidden")
+            MidRef.current?.classList.add("opaque")
+            
         }
     }
 
@@ -44,11 +44,12 @@ const Marker: React.FC<MarkerProps> = ({visible,className,ImageOld, ImageMiddle,
         return(
             <div className="dispenserContainer" ref={ContainerRef}>
                 <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps}/>
-                <img className="Old Img hidden" src={ImageOld} alt="loading" ref={OldRef}/>
-                <img className="Mid Img hidden" src={ImageMiddle} alt="loading" ref={MidRef}/>
                 <img className="New Img hidden" src={ImageNew} alt="loading" ref={NewRef}/>
+                <img className="Mid Img hidden" src={ImageMiddle} alt="loading" ref={MidRef}/>
+                <img className="Old Img hidden" src={ImageOld} alt="loading" ref={OldRef}/>
+                
                 <div className="slideContainer">
-                    <input className='Slide hidden' type="range" defaultValue={1} min={1} max={300} ref={SlideRef} onInput={()=>{}}/>
+                    <input className='Slide' type="range" defaultValue={1} min={1} max={300} ref={SlideRef} onInput={MapLogic}/>
                 </div>
             </div>
         )
