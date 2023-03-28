@@ -1,7 +1,12 @@
+.One{
+    left:20%
+}
+.Two{
+    left:50%
+}
 img.Marker{
     width:20px;
     position: absolute;
-    left:50%;
     top:50%;
     cursor: pointer;
     pointer-events: all;
@@ -12,7 +17,6 @@ img.Marker{
     opacity: 100%;
     width:20px;
     position: absolute;
-    left:50%;
     top:50%;
     cursor: pointer;
     pointer-events: all;

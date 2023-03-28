@@ -21,7 +21,9 @@ const Map: React.FC<MapProps> = ({imageclassname, titleclassname, imagePath, yea
   return (
     <div className="map">
       <img className={clicked? "fixed"+imageclassname  : imageclassname } onClick={fix} src={imagePath} alt={imagePath} />
-      <Marker className={clicked? "Marker":"hiddenMarker"} ImageOld={Old} ImageMiddle={blu} ImageNew={Red} visible={isvisible}/>
+      <Marker className={clicked? "Two "+"Marker":"Two "+"hiddenMarker"} ImageOld={Old} ImageMiddle={blu} ImageNew={Red} visible={isvisible}/>
+      <Marker className={clicked? "One "+"Marker":"One "+"hiddenMarker"} ImageOld={Old} ImageMiddle={blu} ImageNew={Red} visible={isvisible}/>
+
       <div className={clicked? "fixed"+titleclassname : titleclassname  }>{year}</div>
     </div>
   )
