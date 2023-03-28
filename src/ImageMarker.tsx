@@ -11,9 +11,11 @@ type MarkerProps={
     ImageNew:string;
     className:string;
     visible:boolean;
+    leftProp:string;
+    heightProp:string;
 }
 
-const Marker: React.FC<MarkerProps> = ({visible,className,ImageOld, ImageMiddle, ImageNew}) => {
+const Marker: React.FC<MarkerProps> = ({visible,className,ImageOld, ImageMiddle, ImageNew,leftProp,heightProp}) => {
     const OldRef=useRef<HTMLImageElement>(null);
     const MidRef=useRef<HTMLImageElement>(null);
     const NewRef=useRef<HTMLImageElement>(null);
@@ -48,7 +50,7 @@ const Marker: React.FC<MarkerProps> = ({visible,className,ImageOld, ImageMiddle,
     if (visible){
         return(
             <div className="great" ref={greatRef}>
-                <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps} ref={MarkerRef}/>
+                <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps} ref={MarkerRef} style={{left:leftProp,top:heightProp}}/>
                 <div className="dispenserContainer hidden" ref={ContainerRef}>
                     <p className="Back" onClick={ShowMaps}>X</p>
                     <img className="New Img" src={ImageNew} alt="loading" ref={NewRef}/>
