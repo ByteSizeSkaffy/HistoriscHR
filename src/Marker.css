@@ -67,6 +67,7 @@ img.Marker{
 .background{
     background-color: rgba(0, 0, 0, 0.7);
     pointer-events: all;
+    z-index: 5;
 }
 .Back{
     position: relative;
