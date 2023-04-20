@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState,useRef,useEffect} from 'react';
 import Marker from './ImageMarker';
+import ThreeFiberComponent from './Object';
 import Old from "./images/GRNdispenser.png";
 import blu from "./images/Bludispenser.png";
 import Red from "./images/dispenser.png";
@@ -22,8 +23,8 @@ const Map: React.FC<MapProps> = ({imageclassname, titleclassname, imagePath, yea
     <div className="map">
       <img className={clicked? "fixed"+imageclassname  : imageclassname } onClick={fix} src={imagePath} alt={imagePath} />
       <Marker className={clicked? "Two "+"Marker":"Two "+"hiddenMarker"} ImageOld={Old} ImageMiddle={blu} ImageNew={Red} visible={isvisible}/>
+      <ThreeFiberComponent></ThreeFiberComponent>
       <Marker className={clicked? "One "+"Marker":"One "+"hiddenMarker"} ImageOld={Old} ImageMiddle={blu} ImageNew={Red} visible={isvisible}/>
-
       <div className={clicked? "fixed"+titleclassname : titleclassname  }>{year}</div>
     </div>
   )
