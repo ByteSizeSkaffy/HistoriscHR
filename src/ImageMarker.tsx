@@ -44,7 +44,9 @@ const Marker: React.FC<MarkerProps> = ({visible,className,ImageOld, ImageMiddle,
     function ShowMaps(){
         ContainerRef.current?.classList.toggle("hidden");
         greatRef.current?.classList.toggle("background");
-        MarkerRef.current?.classList.toggle("hidden")
+        //added intro for bezier animation
+        MarkerRef.current?.classList.toggle("hidden");
+        MarkerRef.current?.classList.toggle("intro");
 
     }
     if (visible){

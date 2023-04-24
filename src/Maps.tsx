@@ -1,9 +1,9 @@
 import React from 'react';
 import {useState,useRef,useEffect} from 'react';
 import Marker from './ImageMarker';
-import Old from "./images/GRNdispenser.png";
-import blu from "./images/Bludispenser.png";
-import Red from "./images/dispenser.png";
+import Old from "./images/Pictures/WTH_4029.jpg";
+import blu from "./images/Pictures/WTH_4100_1899.jpg";
+import Red from "./images/Pictures/WTH_4100_1940.jpg";
 
 type MapProps ={
   imageclassname: string;
@@ -21,8 +21,8 @@ const Map: React.FC<MapProps> = ({imageclassname, titleclassname, imagePath, yea
   return (
     <div className="map">
       <img className={clicked? "fixed"+imageclassname  : imageclassname } onClick={fix} src={imagePath} alt={imagePath} />
-      <Marker className={clicked? "Two "+"Marker":"Two "+"hiddenMarker"} ImageOld={Old} ImageMiddle={blu} ImageNew={Red} visible={isvisible} leftProp={"50%"} heightProp={"50%"}/>
-      <Marker className={clicked? "One "+"Marker":"One "+"hiddenMarker"} ImageOld={Old} ImageMiddle={blu} ImageNew={Red} visible={isvisible} leftProp={"20%"} heightProp={"40%"}/>
+      <Marker className={clicked? "Two "+"Marker intro":"Two "+"hiddenMarker"} ImageOld={Old} ImageMiddle={blu} ImageNew={Red} visible={isvisible} leftProp={"50%"} heightProp={"50%"}/>
+      <Marker className={clicked? "One "+"Marker intro":"One "+"hiddenMarker"} ImageOld={Old} ImageMiddle={blu} ImageNew={Red} visible={isvisible} leftProp={"20%"} heightProp={"40%"}/>
 
       <div className={clicked? "fixed"+titleclassname : titleclassname  }>{year}</div>
     </div>
