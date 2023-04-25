@@ -1,21 +1,20 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 import {useState,useRef,useEffect} from 'react';
 import MarkerIMG from "./images/Marker.png";
 import "./Marker.css"
+import GRN from "./images/GRNdispenser.png"
 
 //NIET OP DE AFBEELDINGEN LETTEN
 
 type MarkerProps={
-    ImageOld:string;
-    ImageMiddle:string;
-    ImageNew:string;
+    source:Array<string>;
     className:string;
     visible:boolean;
     leftProp:string;
     heightProp:string;
 }
 
-const Marker: React.FC<MarkerProps> = ({visible,className,ImageOld, ImageMiddle, ImageNew,leftProp,heightProp}) => {
+const Marker: React.FC<MarkerProps> = ({visible,className,source,leftProp,heightProp}) => {
     const OldRef=useRef<HTMLImageElement>(null);
     const MidRef=useRef<HTMLImageElement>(null);
     const NewRef=useRef<HTMLImageElement>(null);
@@ -23,8 +22,20 @@ const Marker: React.FC<MarkerProps> = ({visible,className,ImageOld, ImageMiddle,
     const SlideRef=useRef<HTMLInputElement>(null);
     const greatRef=useRef<HTMLDivElement>(null);
     const MarkerRef=useRef<HTMLImageElement>(null);
-
+    const [rerender, setReRender] = useState(false);
+    const fix = ()=> {setReRender((rerender)=>!rerender);}
     
+    function mapRenderLogic(SlideRef:React.RefObject<HTMLInputElement>){
+        const threshhold = 300/source.length
+        let index:number=0;
+        if(SlideRef.current!=undefined){
+            let index = Math.floor((SlideRef.current.valueAsNumber / 100) * (source.length));
+            return <img className='Img' src={source[index]}></img>
+        }
+        return <img className='Img' src={source[index]}></img>
+    };
+
+    /*deprecated
     function MapLogic(){
         if((Number(SlideRef.current?.valueAsNumber)<100)){
             OldRef.current?.classList.remove("opaque")
@@ -39,14 +50,14 @@ const Marker: React.FC<MarkerProps> = ({visible,className,ImageOld, ImageMiddle,
             MidRef.current?.classList.add("opaque")
             
         }
-    }
+        return(<div></div>)
+    }*/
 
     function ShowMaps(){
         ContainerRef.current?.classList.toggle("hidden");
         greatRef.current?.classList.toggle("background");
         //added intro for bezier animation
         MarkerRef.current?.classList.toggle("hidden");
-        MarkerRef.current?.classList.toggle("intro");
 
     }
     if (visible){
@@ -55,12 +66,10 @@ const Marker: React.FC<MarkerProps> = ({visible,className,ImageOld, ImageMiddle,
                 <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps} ref={MarkerRef} style={{left:leftProp,top:heightProp}}/>
                 <div className="dispenserContainer hidden" ref={ContainerRef}>
                     <p className="Back" onClick={ShowMaps}>X</p>
-                    <img className="New Img" src={ImageNew} alt="loading" ref={NewRef}/>
-                    <img className="Mid Img" src={ImageMiddle} alt="loading" ref={MidRef}/>
-                    <img className="Old Img" src={ImageOld} alt="loading" ref={OldRef}/>
+                    {mapRenderLogic(SlideRef)}
                     
                     <div className="slideContainer">
-                        <input className='Slide' type="range" defaultValue={1} min={1} max={300} ref={SlideRef} onInput={MapLogic}/>
+                        <input className='Slide' type="range" defaultValue={1} min={1} max={99} ref={SlideRef} onInput={fix}/>
                     </div>
                 </div>
             </div>

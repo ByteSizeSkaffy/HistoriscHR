@@ -19,7 +19,7 @@ img.Marker{
 }
 
 .intro{
-    animation: myAnim 0.5s ease-in 0.5s 1 normal forwards;
+    animation: myAnim 0.5s ease-in 0.2s 1 normal forwards;
 }
 
 @keyframes myAnim {
