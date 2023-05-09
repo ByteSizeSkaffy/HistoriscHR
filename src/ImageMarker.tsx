@@ -10,11 +10,15 @@ type MarkerProps={
     source:Array<string>;
     className:string;
     visible:boolean;
-    leftProp:string;
-    heightProp:string;
+    x:string;
+    y:string;
+    size:{
+        width: number;
+        height: number;
+    };
 }
 
-const Marker: React.FC<MarkerProps> = ({visible,className,source,leftProp,heightProp}) => {
+const Marker: React.FC<MarkerProps> = ({visible,className,source,x,y,size}) => {
     const OldRef=useRef<HTMLImageElement>(null);
     const MidRef=useRef<HTMLImageElement>(null);
     const NewRef=useRef<HTMLImageElement>(null);
@@ -27,9 +31,10 @@ const Marker: React.FC<MarkerProps> = ({visible,className,source,leftProp,height
     
     function mapRenderLogic(SlideRef:React.RefObject<HTMLInputElement>){
         const threshhold = 300/source.length
-        let index:number=0;
+        let index=0
         if(SlideRef.current!=undefined){
-            let index = Math.floor((SlideRef.current.valueAsNumber / 100) * (source.length));
+            //let index = Math.floor((SlideRef.current.valueAsNumber / 301) * (source.length));
+            let index = SlideRef.current.valueAsNumber;
             return <img className='Img' src={source[index]}></img>
         }
         return <img className='Img' src={source[index]}></img>
@@ -57,19 +62,22 @@ const Marker: React.FC<MarkerProps> = ({visible,className,source,leftProp,height
         ContainerRef.current?.classList.toggle("hidden");
         greatRef.current?.classList.toggle("background");
         //added intro for bezier animation
+        document.body.classList.toggle("scroll");
         MarkerRef.current?.classList.toggle("hidden");
 
     }
     if (visible){
         return(
             <div className="great" ref={greatRef}>
-                <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps} ref={MarkerRef} style={{left:leftProp,top:heightProp}}/>
-                <div className="dispenserContainer hidden" ref={ContainerRef}>
-                    <p className="Back" onClick={ShowMaps}>X</p>
-                    {mapRenderLogic(SlideRef)}
-                    
-                    <div className="slideContainer">
-                        <input className='Slide' type="range" defaultValue={1} min={1} max={99} ref={SlideRef} onInput={fix}/>
+                <div style={{width:size.width,height:size.height}}>
+                    <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps} ref={MarkerRef} style={{left:x,top:y}}/>
+                    <div className="dispenserContainer hidden" ref={ContainerRef}>
+                        <p className="Back" onClick={ShowMaps}>X</p>
+                        {mapRenderLogic(SlideRef)}
+                        
+                        <div className="slideContainer">
+                            <input className='Slide' type="range" defaultValue={0} min={0} max={source.length-1} ref={SlideRef} onInput={fix}/>
+                        </div>
                     </div>
                 </div>
             </div>

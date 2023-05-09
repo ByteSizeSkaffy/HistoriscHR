@@ -1,7 +1,9 @@
-Marker.One{
-    left:20%
+.map{
+	display: inline-block;
 }
-
+Marker{
+	width:auto;
+}
 .intro{
     animation: myAnim 1s ease-in 0s 1 normal forwards;
 }
