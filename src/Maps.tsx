@@ -31,7 +31,7 @@ const Map: React.FC<MapProps> = ({imageclassname, titleclassname, imagePath, yea
   const fix = ()=> {setClicked((clicked)=>!clicked); setVisibility(!isvisible)}
   return (
     <div className="map">
-      <img className={clicked? "fixed"+imageclassname  : imageclassname } onClick={fix} src={imagePath} alt={imagePath} onLoad={handleImgLoad}/>
+      <img className={clicked? "fixed"+imageclassname  : imageclassname } onClick={(event)=>{fix();handleImgLoad(event)}} src={imagePath} alt={imagePath}/>
       <Marker className={clicked? "Two "+"Marker intro":"Two "+"hiddenMarker"} source={source} visible={isvisible} x={"73%"} y={"47%"} size={imgSize}/>
       <Marker className={clicked? "One "+"Marker intro":"One "+"hiddenMarker"} source={og} visible={isvisible} x={"0%"} y={"40%"} size={imgSize}/>
 
