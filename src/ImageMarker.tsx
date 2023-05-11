@@ -69,7 +69,7 @@ const Marker: React.FC<MarkerProps> = ({visible,className,source,x,y,size}) => {
     if (visible){
         return(
             <div className="great" ref={greatRef}>
-                <div className="pos" style={{width:size.width,height:size.height}}>
+                <div className="pos" style={{width:size.width,height:size.height}} onResize={fix}>
                     <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps} ref={MarkerRef} style={{left:x,top:y}}/>
                     <div className="dispenserContainer hidden" ref={ContainerRef}>
                         <p className="Back" onClick={ShowMaps}>X</p>
