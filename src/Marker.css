@@ -79,6 +79,10 @@ img.Marker{
     height: 70%;
 }
 
+.pos{
+    margin: 1rem 0rem 0rem 8.5rem;
+}
+
 .great{
     position: absolute;
     top:0%;
