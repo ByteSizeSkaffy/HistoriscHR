@@ -40,24 +40,6 @@ const Marker: React.FC<MarkerProps> = ({visible,className,source,x,y,size}) => {
         return <img className='Img' src={source[index]}></img>
     };
 
-    /*deprecated
-    function MapLogic(){
-        if((Number(SlideRef.current?.valueAsNumber)<100)){
-            OldRef.current?.classList.remove("opaque")
-            MidRef.current?.classList.add("opaque")
-        }
-        else if (Number(SlideRef.current?.valueAsNumber)>=100 && Number(SlideRef.current?.valueAsNumber)<200){
-            OldRef.current?.classList.add("opaque")
-            MidRef.current?.classList.remove("opaque")
-            NewRef.current?.classList.remove("opaque")
-        }
-        else if ((Number(SlideRef.current?.valueAsNumber)>=200 && (Number(SlideRef.current?.valueAsNumber)<=300))){
-            MidRef.current?.classList.add("opaque")
-            
-        }
-        return(<div></div>)
-    }*/
-
     function ShowMaps(){
         ContainerRef.current?.classList.toggle("hidden");
         greatRef.current?.classList.toggle("background");
