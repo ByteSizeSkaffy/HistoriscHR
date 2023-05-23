@@ -6,8 +6,8 @@ img.Marker{
     opacity: 0%;
     transition: opacity 1s cubic-bezier(1, 3, 3, 1);
 }
-.img.HiddenMarker{
-    opacity: 100%;
+img.Hidden.Marker{
+    display:none;
     width:20px;
     position: relative;
     cursor: pointer;
@@ -50,7 +50,7 @@ img.Marker{
 }
 
 .opaque{
-    opacity: 0%;
+    opacity: 50%;
 }
 
 .shown{
@@ -69,9 +69,14 @@ img.Marker{
     overflow: visible;
 }
 .InfoText{
-    position: absolute;
+    color:black;
+    font-size: 2em;
+    position: relative;
+    left:24vw;
+    top:-5vh;
     display:block;
     margin:auto;
+    pointer-events: none;
 }
 
 .dispenserContainer{
@@ -107,6 +112,7 @@ img.Marker{
     position: relative;
     right:-90%;
     top:5%;
+    width:30px;
     color: black;
     font: bolder;
     cursor: pointer;

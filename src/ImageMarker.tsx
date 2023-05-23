@@ -8,7 +8,6 @@ import "./Marker.css"
 type MarkerProps={
     source:Array<any>;
     className:string;
-    visible:boolean;
     x:string;
     y:string;
     size:{
@@ -17,7 +16,7 @@ type MarkerProps={
     };
 }
 
-const Marker: React.FC<MarkerProps> = ({visible,className,source,x,y,size}) => {
+const Marker: React.FC<MarkerProps> = ({className,source,x,y,size}) => {
     const ContainerRef=useRef<HTMLDivElement>(null);
     const SlideRef=useRef<HTMLInputElement>(null);
     const greatRef=useRef<HTMLDivElement>(null);
@@ -41,25 +40,22 @@ const Marker: React.FC<MarkerProps> = ({visible,className,source,x,y,size}) => {
         MarkerRef.current?.classList.toggle("hidden");
 
     }
-    if (visible){
-        return(
-            <div className="great" ref={greatRef}>
-                <div className="pos" style={{width:size.width,height:size.height}} onResize={fix}>
-                    <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps} ref={MarkerRef} style={{left:x,top:y}}/>
-                    <div className="dispenserContainer hidden" ref={ContainerRef}>
-                        <p className="Back" onClick={ShowMaps}>X</p>
-                        {mapRenderLogic(SlideRef)}
-                        
-                        <div className="slideContainer">
-                            <input className='Slide' type="range" defaultValue={0} min={0} max={source.length-1} ref={SlideRef} onInput={fix}/>
-                        </div>
-                        
+    return(
+        <div className="great" ref={greatRef}>
+            <div className="pos" style={{width:size.width,height:size.height}} onResize={fix}>
+                <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps} ref={MarkerRef} style={{left:x,top:y}}/>
+                <div className="dispenserContainer hidden" ref={ContainerRef}>
+                    <p className="Back" onClick={ShowMaps}>X</p>
+                    {mapRenderLogic(SlideRef)}
+                    
+                    <div className="slideContainer">
+                        <input className='Slide' type="range" defaultValue={0} min={0} max={source.length-1} ref={SlideRef} onInput={fix}/>
                     </div>
+                    
                 </div>
             </div>
-        )
-    }
-    else {return <div className="Test"/>;}
+        </div>
+    )
 }
 
 export default Marker;

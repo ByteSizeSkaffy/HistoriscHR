@@ -13,7 +13,6 @@ type MapProps ={
 
 const Map: React.FC<MapProps> = ({imageclassname, titleclassname, imagePath, year}) => {
   const [clicked, setClicked] = useState(false);
-  const [isvisible, setVisibility] = useState(false);
   const [imgSize, setImgSize] = useState({ width: 0, height: 0 });
 
   function handleImgLoad(event:any) {
@@ -21,16 +20,14 @@ const Map: React.FC<MapProps> = ({imageclassname, titleclassname, imagePath, yea
     const { width, height } = img;
     setImgSize({ width, height });
   }
-  const source:Array<Object>=data.Dispenser
-  const og:Array<Object> =data.Wittehuis_Rotterdam
 
 
-  const fix = ()=> {setClicked((clicked)=>!clicked); setVisibility(!isvisible)}
+  const fix = ()=> {setClicked((clicked)=>!clicked);}
   return (
     <div className="map">
       <img className={clicked? "fixed"+imageclassname  : imageclassname } onClick={(event)=>{fix();handleImgLoad(event)}} src={imagePath} alt={imagePath}/>
-      <Marker className={clicked? "Two "+"Marker intro":"Two "+"hiddenMarker"} source={source} visible={isvisible} x={"73%"} y={"47%"} size={imgSize}/>
-      <Marker className={clicked? "One "+"Marker intro":"One "+"hiddenMarker"} source={og} visible={isvisible} x={"0%"} y={"40%"} size={imgSize}/>
+      <Marker className={clicked? "Marker intro":"Hidden Marker"} source={data.Dispenser} x={"73%"} y={"47%"} size={imgSize}/>
+      <Marker className={clicked? "Marker intro":"Hidden Marker"} source={data.Wittehuis_Rotterdam} x={"0%"} y={"40%"} size={imgSize}/>
 
       <div className={clicked? "fixed"+titleclassname : titleclassname  }>{year}</div>
     </div>
