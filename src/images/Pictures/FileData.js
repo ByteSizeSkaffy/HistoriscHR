@@ -13,9 +13,5 @@ export const data = {
     {"path":require("./1903.jpg"),"year":"1903"},
     {"path":require("./1920.jpg"),"year":"1920"},
     {"path":require("./1936.jpg"),"year":"1936"}
-],"Dispenser":[
-    {"path":require("./GRNdispenser.png"),"year":"you"},
-    {"path":require("./Bludispenser.png"),"year":"Me"},
-    {"path":require("./dispenser.png"),"year":"them"}
 ]
 }
