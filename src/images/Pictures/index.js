@@ -1,4 +1,4 @@
-import WTH_4029 from "./WTH_4029.jpg";
+import WTH_4029 from "./WTH_4029.jpg"
 import WTH_4100_1899 from "./WTH_4100_1899.jpg";
 import WTH_4100_1940 from "./WTH_4100_1940.jpg";
 import GRN from "./GRNdispenser.png";

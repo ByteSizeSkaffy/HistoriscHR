@@ -2,9 +2,7 @@ import React from 'react';
 import {useState,useRef,useEffect} from 'react';
 import Marker from './ImageMarker';
 import "./maps.css";
-import {
-  WTH_4029, WTH_4100_1940,WTH_4100_1899,RED,GRN,BLU, MAP1, MAP2, MAP3
-} from "./images/Pictures"
+import {data} from "./images/Pictures/FileData"
 
 type MapProps ={
   imageclassname: string;
@@ -23,10 +21,9 @@ const Map: React.FC<MapProps> = ({imageclassname, titleclassname, imagePath, yea
     const { width, height } = img;
     setImgSize({ width, height });
   }
-  
+  const source:Array<Object>=data.Dispenser
+  const og:Array<Object> =data.Wittehuis_Rotterdam
 
-  const source=[WTH_4029,WTH_4100_1899,WTH_4100_1940,MAP1,MAP2,MAP3]
-  const og = [WTH_4029,WTH_4100_1899,WTH_4100_1940]
 
   const fix = ()=> {setClicked((clicked)=>!clicked); setVisibility(!isvisible)}
   return (

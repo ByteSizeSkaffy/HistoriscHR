@@ -68,6 +68,11 @@ img.Marker{
     right:15%;
     overflow: visible;
 }
+.InfoText{
+    position: absolute;
+    display:block;
+    margin:auto;
+}
 
 .dispenserContainer{
     border-radius: 100px;

@@ -2,12 +2,11 @@ import React, { RefObject } from 'react';
 import {useState,useRef,useEffect} from 'react';
 import MarkerIMG from "./images/Marker.png";
 import "./Marker.css"
-import GRN from "./images/GRNdispenser.png"
 
 //NIET OP DE AFBEELDINGEN LETTEN
 
 type MarkerProps={
-    source:Array<string>;
+    source:Array<any>;
     className:string;
     visible:boolean;
     x:string;
@@ -19,31 +18,25 @@ type MarkerProps={
 }
 
 const Marker: React.FC<MarkerProps> = ({visible,className,source,x,y,size}) => {
-    const OldRef=useRef<HTMLImageElement>(null);
-    const MidRef=useRef<HTMLImageElement>(null);
-    const NewRef=useRef<HTMLImageElement>(null);
     const ContainerRef=useRef<HTMLDivElement>(null);
     const SlideRef=useRef<HTMLInputElement>(null);
     const greatRef=useRef<HTMLDivElement>(null);
     const MarkerRef=useRef<HTMLImageElement>(null);
     const [rerender, setReRender] = useState(false);
     const fix = ()=> {setReRender((rerender)=>!rerender);}
-    
+
     function mapRenderLogic(SlideRef:React.RefObject<HTMLInputElement>){
-        const threshhold = 300/source.length
         let index=0
         if(SlideRef.current!=undefined){
-            //let index = Math.floor((SlideRef.current.valueAsNumber / 301) * (source.length));
             let index = SlideRef.current.valueAsNumber;
-            return <img className='Img' src={source[index]}></img>
+            return <div><img className='Img' src={source[index].path}></img><p className="InfoText">{source[index].year}</p></div>
         }
-        return <img className='Img' src={source[index]}></img>
+        return <div><img className='Img' src={source[index].path}></img><p className="InfoText">{source[index].year}</p></div>
     };
 
     function ShowMaps(){
         ContainerRef.current?.classList.toggle("hidden");
         greatRef.current?.classList.toggle("background");
-        //added intro for bezier animation
         document.body.classList.toggle("scroll");
         MarkerRef.current?.classList.toggle("hidden");
 
@@ -60,6 +53,7 @@ const Marker: React.FC<MarkerProps> = ({visible,className,source,x,y,size}) => {
                         <div className="slideContainer">
                             <input className='Slide' type="range" defaultValue={0} min={0} max={source.length-1} ref={SlideRef} onInput={fix}/>
                         </div>
+                        
                     </div>
                 </div>
             </div>
