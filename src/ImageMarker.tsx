@@ -1,7 +1,8 @@
-import React, { RefObject } from 'react';
-import {useState,useRef,useEffect} from 'react';
+import React from 'react';
+import {useState,useRef} from 'react';
 import MarkerIMG from "./images/Marker.png";
 import "./Marker.css"
+import PictureSlider from './PictureSlider';
 
 //NIET OP DE AFBEELDINGEN LETTEN
 
@@ -17,24 +18,14 @@ type MarkerProps={
 }
 
 const Marker: React.FC<MarkerProps> = ({className,source,x,y,size}) => {
-    const ContainerRef=useRef<HTMLDivElement>(null);
-    const SlideRef=useRef<HTMLInputElement>(null);
     const greatRef=useRef<HTMLDivElement>(null);
     const MarkerRef=useRef<HTMLImageElement>(null);
     const [rerender, setReRender] = useState(false);
+    const [visible,setVisible] = useState(true);
     const fix = ()=> {setReRender((rerender)=>!rerender);}
 
-    function mapRenderLogic(SlideRef:React.RefObject<HTMLInputElement>){
-        let index=0
-        if(SlideRef.current!=undefined){
-            let index = SlideRef.current.valueAsNumber;
-            return <div><img className='Img' src={source[index].path}></img><p className="InfoText">{source[index].year}</p></div>
-        }
-        return <div><img className='Img' src={source[index].path}></img><p className="InfoText">{source[index].year}</p></div>
-    };
-
     function ShowMaps(){
-        ContainerRef.current?.classList.toggle("hidden");
+        setVisible(!visible);
         greatRef.current?.classList.toggle("background");
         document.body.classList.toggle("scroll");
         MarkerRef.current?.classList.toggle("hidden");
@@ -44,15 +35,9 @@ const Marker: React.FC<MarkerProps> = ({className,source,x,y,size}) => {
         <div className="great" ref={greatRef}>
             <div className="pos" style={{width:size.width,height:size.height}} onResize={fix}>
                 <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps} ref={MarkerRef} style={{left:x,top:y}}/>
-                <div className="dispenserContainer hidden" ref={ContainerRef}>
-                    <p className="Back" onClick={ShowMaps}>X</p>
-                    {mapRenderLogic(SlideRef)}
-                    
-                    <div className="slideContainer">
-                        <input className='Slide' type="range" defaultValue={0} min={0} max={source.length-1} ref={SlideRef} onInput={fix}/>
-                    </div>
-                    
-                </div>
+                <p className={visible? "Back hidden":"Back"} onClick={ShowMaps}>X</p>
+                <PictureSlider source={source} visible={visible}></PictureSlider>
+                
             </div>
         </div>
     )
