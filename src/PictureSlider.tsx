@@ -26,13 +26,6 @@ const PictureSlider: React.FC<PictureProps> = ({source,visible}) => {
         return <div><img className='Img' src={source[index].path}></img><p className="InfoText">{source[index].year}</p></div>
     };
 
-    function ShowMaps(){
-        ContainerRef.current?.classList.toggle("hidden");
-        greatRef.current?.classList.toggle("background");
-        document.body.classList.toggle("scroll");
-        MarkerRef.current?.classList.toggle("hidden");
-
-    }
     return(
         <div className={visible? "dispenserContainer hidden":"dispenserContainer"} ref={ContainerRef}>
             {mapRenderLogic(SlideRef)}
