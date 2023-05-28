@@ -1,9 +1,9 @@
 import React from 'react';
 import {useState,useRef} from 'react';
-import MarkerIMG from "./images/Marker.png";
 import "./Marker.css"
 import PictureSlider from './PictureSlider';
-
+import MarkerIMG from "./images/Marker.png";
+import Loader from "./3DLoader";
 //NIET OP DE AFBEELDINGEN LETTEN
 
 type MarkerProps={
@@ -29,15 +29,15 @@ const Marker: React.FC<MarkerProps> = ({className,source,x,y,size}) => {
         greatRef.current?.classList.toggle("background");
         document.body.classList.toggle("scroll");
         MarkerRef.current?.classList.toggle("hidden");
-
     }
+
     return(
         <div className="great" ref={greatRef}>
             <div className="pos" style={{width:size.width,height:size.height}} onResize={fix}>
                 <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps} ref={MarkerRef} style={{left:x,top:y}}/>
                 <p className={visible? "Back hidden":"Back"} onClick={ShowMaps}>X</p>
                 <PictureSlider source={source} visible={visible}></PictureSlider>
-                
+                <Loader visible={visible}modelpath={"./src/models/2d_house.glb"}></Loader>
             </div>
         </div>
     )
