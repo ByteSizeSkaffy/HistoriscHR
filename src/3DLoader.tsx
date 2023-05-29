@@ -5,6 +5,7 @@ import { useLoader } from "@react-three/fiber";
 import { Environment, OrbitControls } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Suspense } from "react";
+import "./Marker.css";
 
 type LoaderProps={
   visible: boolean;
@@ -14,7 +15,8 @@ type LoaderProps={
 const Loader: React.FC<LoaderProps> = ({visible, modelpath}) => {
   const mesh = useLoader(GLTFLoader, modelpath);
   return(
-      <div className={visible? "hidden":""}>
+      <div className={visible? "hidden":"object"}>
+        <div className={visible?"hidden": "canvas"}>
       <Canvas>
         <Suspense fallback={null}>
           <primitive 
@@ -34,7 +36,9 @@ const Loader: React.FC<LoaderProps> = ({visible, modelpath}) => {
             maxPolarAngle={(Math.PI / 180) * 125} // 275 degrees in radians (360 - 85)
           />
         </Suspense>
+        
       </Canvas>
+      </div>
       </div>
   )
 }

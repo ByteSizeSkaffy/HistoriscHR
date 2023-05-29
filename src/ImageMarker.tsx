@@ -37,7 +37,7 @@ const Marker: React.FC<MarkerProps> = ({className,source,x,y,size}) => {
                 <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps} ref={MarkerRef} style={{left:x,top:y}}/>
                 <p className={visible? "Back hidden":"Back"} onClick={ShowMaps}>X</p>
                 <PictureSlider source={source} visible={visible}></PictureSlider>
-                <Loader visible={visible}modelpath={"https://ipfs.io/ipfs/QmYqwNYxqmu4z39emTo7h9D62rbwm1esAmbAf2PctAyUvu?filename=Flamingo.glb"}></Loader>
+                <Loader visible={visible} modelpath={"https://ipfs.io/ipfs/QmYqwNYxqmu4z39emTo7h9D62rbwm1esAmbAf2PctAyUvu?filename=Flamingo.glb"}></Loader>
             </div>
         </div>
     )
