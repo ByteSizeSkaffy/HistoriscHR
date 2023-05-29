@@ -13,8 +13,8 @@ type LoaderProps={
 
 const Loader: React.FC<LoaderProps> = ({visible, modelpath}) => {
   const mesh = useLoader(GLTFLoader, modelpath);
-  if(visible){
-    return(
+  return(
+      <div className={visible? "hidden":""}>
       <Canvas>
         <Suspense fallback={null}>
           <primitive 
@@ -35,9 +35,7 @@ const Loader: React.FC<LoaderProps> = ({visible, modelpath}) => {
           />
         </Suspense>
       </Canvas>
-    )
-  }else{
-    return null;
-  }
+      </div>
+  )
 }
 export default Loader;

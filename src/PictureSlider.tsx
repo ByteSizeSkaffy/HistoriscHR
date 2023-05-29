@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState,useRef,useEffect} from 'react';
+import {useState,useRef} from 'react';
 import "./Marker.css"
 
 //NIET OP DE AFBEELDINGEN LETTEN
@@ -12,8 +12,6 @@ type PictureProps={
 const PictureSlider: React.FC<PictureProps> = ({source,visible}) => {
     const ContainerRef=useRef<HTMLDivElement>(null);
     const SlideRef=useRef<HTMLInputElement>(null);
-    const greatRef=useRef<HTMLDivElement>(null);
-    const MarkerRef=useRef<HTMLImageElement>(null);
     const [rerender, setReRender] = useState(false);
     const fix = ()=> {setReRender((rerender)=>!rerender);}
 
