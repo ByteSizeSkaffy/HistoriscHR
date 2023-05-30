@@ -22,13 +22,13 @@ const Loader: React.FC<LoaderProps> = ({visible, modelpath}) => {
           <primitive 
             object={mesh.scene}
             rotation={[0, -Math.PI / 2, 0]}
-            position={[0, -3, -1]}
+            position={[-0.5, -2.5, -1]}
             scale={0.4} 
           />
           <Environment preset="sunset" />
           <OrbitControls 
             enableDamping={true}
-            enableZoom={false}
+            enableZoom={true}
             panSpeed={0.01}
             minAzimuthAngle={-Math.PI / 7} // -26 degrees in radians
             maxAzimuthAngle={Math.PI / 7} // 26 degrees in radians
