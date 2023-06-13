@@ -8,7 +8,7 @@ type MapProps ={
   imageclassname: string;
   titleclassname: string;
   imagePath: string;
-  year: number;	
+  year: string;	
 }
 
 const Map: React.FC<MapProps> = ({imageclassname, titleclassname, imagePath, year}) => {
@@ -25,9 +25,9 @@ const Map: React.FC<MapProps> = ({imageclassname, titleclassname, imagePath, yea
   const fix = ()=> {setClicked((clicked)=>!clicked);}
   return (
     <div className="map">
-      <img className={clicked? "fixed"+imageclassname  : imageclassname } onClick={(event)=>{fix();handleImgLoad(event)}} src={imagePath} alt={imagePath}/>
-      <Marker className={clicked? "Marker intro":"Hidden Marker"} source={data.Maps} x={"73%"} y={"47%"} size={imgSize}/>
-      <Marker className={clicked? "Marker intro":"Hidden Marker"} source={data.Wittehuis_Rotterdam} x={"0%"} y={"40%"} size={imgSize}/>
+      <img className={clicked? "fixed"+imageclassname : imageclassname } onClick={(event)=>{fix();handleImgLoad(event)}} src={imagePath} alt={imagePath}/>
+      <Marker className={clicked? "Marker intro":"Hidden Marker"} source={data.Maps} x={"50%"} y={"47%"} size={imgSize}/>
+      <Marker className={clicked? "Marker intro":"Hidden Marker"} source={data.Wittehuis_Rotterdam} x={"72%"} y={"24%"} size={imgSize}/>
 
       <div className={clicked? "fixed"+titleclassname : titleclassname  }>{year}</div>
     </div>

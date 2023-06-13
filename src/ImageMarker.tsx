@@ -4,6 +4,7 @@ import "./Marker.css"
 import PictureSlider from './PictureSlider';
 import MarkerIMG from "./images/Marker.png";
 import Loader from "./3DLoader";
+import {data} from "./images/Pictures/FileData"
 //NIET OP DE AFBEELDINGEN LETTEN
 
 type MarkerProps={
@@ -37,7 +38,7 @@ const Marker: React.FC<MarkerProps> = ({className,source,x,y,size}) => {
                 <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps} ref={MarkerRef} style={{left:x,top:y}}/>
                 <p className={visible? "Back hidden":"Back"} onClick={ShowMaps}>X</p>
                 <PictureSlider source={source} visible={visible}></PictureSlider>
-                <Loader visible={visible}modelpath={"https://ipfs.io/ipfs/QmTC9R2ve42ArDMgKpcJQKiSXicNzqkFWouumz7rsfuWgZ?filename=project_huis.glb"}></Loader>
+                <Loader visible={visible}modelpath={data['3DData'].Flamingo}></Loader>
             </div>
         </div>
     )

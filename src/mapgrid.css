@@ -1,0 +1,41 @@
+.mapgridbackground{
+    background-color: #0000;
+    padding-left: 0.5rem;
+}
+.mapgrid{
+    box-shadow:  -2px 30px 19px 1px rgba(81, 72, 20, 0.655);
+    border-radius: 10rem;
+    height: 70%;
+    background-color: #f6dc58;
+    transition: ease 3s;
+}
+.mapgrid:hover{
+    box-shadow:  -2px 24px 19px 1px rgba(93, 84, 34, 0.448);
+    border-radius: 10rem;
+    height: 70%;
+    background-color: #f6dc58;
+    transition: ease 1s;
+}
+.mapgrid:hover .maptitle{
+    size: 20rem;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-top: 80vh;
+    padding-left: 50vw;
+    float: middle;
+    color: #ffffff;
+    border-radius: 25px;
+    transition: ease 1s;
+}
+
+.map{
+    box-shadow:  -2px 24px 19px 1px rgba(87,79,36,1);
+    overflow: hidden;
+    position: absolute;
+    margin-top: 5vh;
+    float: left;
+    max-width: 60%;
+    max-height: 60%;
+    border-radius: 14rem;
+    transition: ease 0.5s;
+}
