@@ -30,7 +30,7 @@ const PictureSlider: React.FC<PictureProps> = ({source,visible}) => {
             
             <div className="slideContainer">
                 <input className='Slide' type="range" defaultValue={0} min={0} list='markings' max={source.length-1} ref={SlideRef} onInput={fix} 
-                style={{background: "repeating-linear-gradient(90deg, #000, #000 1px, transparent 1px, transparent "+100/(source.length-1)+"%)"}}/>
+                style={{background: "repeating-linear-gradient(90deg, #000, #000 1px, transparent 1px, transparent "+95/(source.length-1)+"%)"}}/>
             </div>
             
         </div>

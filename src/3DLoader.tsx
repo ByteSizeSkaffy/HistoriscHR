@@ -25,7 +25,7 @@ const Loader: React.FC<LoaderProps> = ({visible, modelpath}) => {
             position={[-0.5, -2.5, -1]}
             scale={0.4} 
           />
-          <Environment preset="sunset" />
+          <ambientLight intensity={0.7} />
           <OrbitControls 
             enableDamping={true}
             enableZoom={true}
