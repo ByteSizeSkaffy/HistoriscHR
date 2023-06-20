@@ -12,13 +12,14 @@ type MarkerProps={
     className:string;
     x:string;
     y:string;
+    model:string
     size:{
         width: number;
         height: number;
     };
 }
 
-const Marker: React.FC<MarkerProps> = ({className,source,x,y,size}) => {
+const Marker: React.FC<MarkerProps> = ({className,source,x,y,size,model}) => {
     const greatRef=useRef<HTMLDivElement>(null);
     const MarkerRef=useRef<HTMLImageElement>(null);
     const [rerender, setReRender] = useState(false);
@@ -38,7 +39,7 @@ const Marker: React.FC<MarkerProps> = ({className,source,x,y,size}) => {
                 <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps} ref={MarkerRef} style={{left:x,top:y}}/>
                 <p className={visible? "Back hidden":"Back"} onClick={ShowMaps}>X</p>
                 <PictureSlider source={source} visible={visible}></PictureSlider>
-                <Loader visible={visible}modelpath={data['3DData'].Flamingo}></Loader>
+                <Loader visible={visible}modelpath={model}></Loader>
             </div>
         </div>
     )

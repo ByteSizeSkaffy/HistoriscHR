@@ -2,7 +2,6 @@ import React from 'react';
 import {useState,useRef} from 'react';
 import "./Marker.css"
 
-//NIET OP DE AFBEELDINGEN LETTEN
 
 type PictureProps={
     source:Array<any>;
