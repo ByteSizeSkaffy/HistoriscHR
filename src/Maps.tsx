@@ -21,6 +21,14 @@ const Map: React.FC<MapProps> = ({imageclassname, titleclassname, imagePath, yea
     setImgSize({ width, height });
   }
 
+  React.useEffect(() => {
+    function handleResize() {
+      setClicked(()=>false)
+      console.log(window.innerWidth)
+      console.log(window.innerHeight)
+    }
+    window.addEventListener('resize', handleResize)
+  })
 
   const fix = ()=> {setClicked((clicked)=>!clicked);}
   return (

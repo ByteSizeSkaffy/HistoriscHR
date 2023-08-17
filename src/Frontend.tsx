@@ -5,6 +5,14 @@ import image2 from './images/maps/1920.jpg';
 import image3 from './images/maps/1903.jpg';
 import './app.css';
 
+function Frontend_New(){
+  return(
+  <div className='bg'>
+
+  </div>
+  )
+}
+
 function Frontend(){
     return (
   <div className="App">
