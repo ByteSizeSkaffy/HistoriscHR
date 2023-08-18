@@ -4,7 +4,7 @@ import Frontend from './Frontend';
 import "@picocss/pico";  
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes ,Link} from 'react-router-dom';
-import addMarker from './AddMarker';
+import AddMarker from './AddMarker';
 
 const root = ReactDOM.createRoot(
   document.getElementById('Frontend') as HTMLElement
@@ -20,10 +20,10 @@ root.render(
         <li><strong>De kaarten van rotterdam</strong></li>
       </nav>
       <Routes>
-        <Route path="/add" element={<div/>}/>
+        <Route path="/" element={<Frontend/>}/>
+        <Route path="/add" element={<AddMarker/>}/>
       </Routes>
     </BrowserRouter>
-    <Frontend />
   </React.StrictMode>
 );
 

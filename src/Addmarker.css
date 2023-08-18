@@ -1,0 +1,22 @@
+.grid{
+    box-shadow:  -2px 24px 19px 1px rgba(93, 84, 34, 0.448);
+    border-radius: 10rem;
+    height: 90vh;
+    background-color: #f6dc58;
+}
+.stuff{
+    box-shadow: -2px 22px 19px -10px rgb(164, 161, 76);
+    overflow: hidden;
+    position: absolute;
+    margin: 1vw 0vw 0vw 1vw;
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 9rem;
+}
+.smaller{
+    height:5%;
+    cursor: pointer;
+}
+.smallMark{
+    pointer-events: none;
+}
