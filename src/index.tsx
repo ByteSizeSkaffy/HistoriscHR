@@ -20,7 +20,7 @@ root.render(
         <li><strong>De kaarten van rotterdam</strong></li>
       </nav>
       <Routes>
-        <Route path="/add" element={<addMarker/>}/>
+        <Route path="/add" element={<div/>}/>
       </Routes>
     </BrowserRouter>
     <Frontend />
