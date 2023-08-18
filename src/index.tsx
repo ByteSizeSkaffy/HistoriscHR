@@ -3,12 +3,26 @@ import ReactDOM from 'react-dom/client';
 import Frontend from './Frontend';
 import "@picocss/pico";  
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes ,Link} from 'react-router-dom';
+import addMarker from './AddMarker';
 
 const root = ReactDOM.createRoot(
   document.getElementById('Frontend') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+        <BrowserRouter>
+      <nav>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/add">Add Marker</Link></li>
+        </ul>
+        <li><strong>De kaarten van rotterdam</strong></li>
+      </nav>
+      <Routes>
+        <Route path="/add" element={<addMarker/>}/>
+      </Routes>
+    </BrowserRouter>
     <Frontend />
   </React.StrictMode>
 );
