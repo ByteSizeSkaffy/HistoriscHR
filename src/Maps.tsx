@@ -3,6 +3,7 @@ import {useState,useRef,useEffect} from 'react';
 import Marker from './ImageMarker';
 import "./maps.css";
 import {data} from "./images/Pictures/FileData"
+import { Markers } from './MarkerInfo';
 
 type MapProps ={
   imageclassname: string;
@@ -30,13 +31,20 @@ const Map: React.FC<MapProps> = ({imageclassname, titleclassname, imagePath, yea
     window.addEventListener('resize', handleResize)
   })
 
+  function MarkerRender(){
+    var markList:JSX.Element[]=[]
+    Markers.forEach(marker => {
+      markList.push(<Marker className={clicked? "Marker intro":"Hidden Marker"} source={marker.source} x={marker.x} y={marker.y} size={imgSize} model={marker.model}/>)
+    });
+    return markList
+  }
+
   const fix = ()=> {setClicked((clicked)=>!clicked);}
   return (
     <div className="map">
       <img className={clicked? "fixed"+imageclassname : imageclassname } onClick={(event)=>{fix();handleImgLoad(event)}} src={imagePath} alt={imagePath}/>
-      <Marker className={clicked? "Marker intro":"Hidden Marker"} source={data.Maps} x={"50%"} y={"47%"} size={imgSize} model={data['3DData'].Flamingo}/>
-      <Marker className={clicked? "Marker intro":"Hidden Marker"} source={data.Wittehuis_Rotterdam} x={"72%"} y={"24%"} size={imgSize} model={data['3DData'].Flamingo}/>
-      <Marker className={clicked? "Marker intro":"Hidden Marker"} source={data.De_Hef} x={"78%"} y={"42%"} size={imgSize} model={data['3DData'].Flamingo}/>
+      {MarkerRender()}
+
       <div className={clicked? "fixed"+titleclassname : titleclassname  }>{year}</div>
     </div>
   )
