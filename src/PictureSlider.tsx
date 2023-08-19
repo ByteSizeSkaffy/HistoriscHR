@@ -16,11 +16,22 @@ const PictureSlider: React.FC<PictureProps> = ({source,visible}) => {
 
     function mapRenderLogic(SlideRef:React.RefObject<HTMLInputElement>){
         let index=0
-        if(SlideRef.current!=undefined){
-            let index = SlideRef.current.valueAsNumber;
+        console.log(typeof(source[index]))
+        if(typeof(source[index])!=typeof('string'))
+        {
+            if(SlideRef.current!=undefined){
+                let index = SlideRef.current.valueAsNumber;
+                return <div><img className='Img' src={source[index].path}></img><p className="InfoText">{source[index].year}</p></div>
+            }
             return <div><img className='Img' src={source[index].path}></img><p className="InfoText">{source[index].year}</p></div>
         }
-        return <div><img className='Img' src={source[index].path}></img><p className="InfoText">{source[index].year}</p></div>
+        else{
+            if(SlideRef.current!=undefined){
+                let index = SlideRef.current.valueAsNumber;
+                return <div><img className='Img' src={source[index]}></img><p className="InfoText">{source[index].year}</p></div>
+            }
+            return <div><img className='Img' src={source[index]}></img><p className="InfoText">{source[index].year}</p></div>
+        }
     };
 
     return(

@@ -9,7 +9,7 @@
     overflow: hidden;
     position: absolute;
     margin: 1vw 0vw 0vw 1vw;
-    max-width: fit-content;
+    max-width: 80vw;
     max-height: fit-content;
     border-radius: 9rem;
     z-index: -0;
@@ -28,16 +28,22 @@
 }
 .inputBox{
     position: relative;
-    width: 10%;
+    width: 15%;
     margin-left: auto;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-right: 3%;
 }
 .X{
     right:2%;
-    width: 5%;
+    width: 1%;
     z-index: 3;
 }
 .Y{
     z-index: 3;
+}
+.previewContainer{
+    
+}
+.hidden{
+    display: none;
 }
