@@ -6,8 +6,8 @@ export const Markers = [
         {"path":require("./images/Pictures/WTH_4100_1940.jpg"),"year":"1940"},
         {"path":require("./images/Pictures/WTH_now.jpg"),"year":"2023"}
         ],
-    "x":"72%",
-    "y":"24%",
+    "x":"45.5%",
+    "y":"33%",
     "model":"https://ipfs.io/ipfs/QmYqwNYxqmu4z39emTo7h9D62rbwm1esAmbAf2PctAyUvu?filename=Flamingo.glb"
     }
 ]

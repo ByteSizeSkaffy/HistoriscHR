@@ -17,7 +17,7 @@
     transition: ease 1s;
 }
 .mapgrid:hover .maptitle{
-    size: 20rem;
+    max-height: fit-content;
     font-size: 2rem;
     font-weight: bold;
     padding-top: 80vh;

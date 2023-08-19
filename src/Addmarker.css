@@ -3,6 +3,7 @@
     border-radius: 10rem;
     height: 90vh;
     background-color: #f6dc58;
+    padding-left: 0.5rem;
 }
 .dragbox{
     box-shadow: -2px 22px 19px -10px rgb(164, 161, 76);
@@ -40,9 +41,6 @@
 }
 .Y{
     z-index: 3;
-}
-.previewContainer{
-    
 }
 .hidden{
     display: none;

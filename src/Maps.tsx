@@ -1,9 +1,9 @@
 import React from 'react';
 import {useState,useRef,useEffect} from 'react';
 import Marker from './ImageMarker';
-import "./maps.css";
 import {data} from "./images/Pictures/FileData"
 import { Markers } from './MarkerInfo';
+import "./Frontend.css"
 
 type MapProps ={
   imageclassname: string;
@@ -34,11 +34,14 @@ const Map: React.FC<MapProps> = ({imageclassname, titleclassname, imagePath, yea
 
   const fix = ()=> {setClicked((clicked)=>!clicked);}
   return (
-    <div className="map">
-      <img className={clicked? "fixed"+imageclassname : imageclassname } onClick={(event)=>{fix();handleImgLoad(event)}} src={imagePath} alt={imagePath}/>
+    <div>
+      <div className={!clicked? "closed "+'mapContainer':"mapContainer"}>
+      <img className={imageclassname } onClick={(event)=>{fix();handleImgLoad(event)}} src={imagePath} alt={imagePath}/>
+      </div>
+      
       {MarkerRender()}
 
-      <div className={clicked? "fixed"+titleclassname : titleclassname  }>{year}</div>
+      <div className={!clicked? "closed "+titleclassname : titleclassname  }>{year}</div>
     </div>
   )
 }

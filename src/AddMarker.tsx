@@ -82,9 +82,9 @@ function AddMarker(){
                     Name:
                     <input value={nameValue} onInput={OnNameinput}></input>
                     X-Coördinate:
-                    <input type='number' value={MrkXValue} onInput={Xupdate} step="0.5" defaultValue={20} className='X'max="99" min="0"></input>
+                    <input type='number' value={MrkXValue} onInput={Xupdate} step="0.5"className='X'max="99" min="0"></input>
                     Y-Coördinate:
-                    <input type='number' value={MrkYValue} onInput={Yupdate} step="1" defaultValue={10}className='Y'max="95" min="0"></input>
+                    <input type='number' value={MrkYValue} onInput={Yupdate} step="1"className='Y'max="95" min="0"></input>
                     
                     <button onClick={OpenPhotoWindow}>addphoto</button>
                     <p></p>

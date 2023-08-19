@@ -1,6 +1,6 @@
 img.Marker{
-    width:2%;
-    position: relative;
+    width:1.5%;
+    position: absolute;
     cursor: pointer;
     pointer-events: all;
     opacity: 0%;
@@ -8,8 +8,8 @@ img.Marker{
 }
 img.Hidden.Marker{
     display:none;
-    width:2%;
-    position: relative;
+    width:1.5%;
+    position: absolute;
     cursor: pointer;
     pointer-events: all;
     opacity: 0%;
@@ -106,10 +106,28 @@ img.Hidden.Marker{
     width:50%;
     height: 70%;
 }
-
+.DecoyMap{
+    position: relative;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0%;
+}
+.decoyMapContainer{
+    overflow: hidden;
+    position: absolute;
+    margin: 1vw 0vw 0vw 1vw;
+    max-width: 80vw;
+    max-height: fit-content;
+    border-radius: 9rem;
+    z-index: -0;
+    pointer-events: none;
+}
 .pos{
+    position: absolute;
     margin-top: 12vh;
     margin-left: 12vw;
+    height:100%;
+    max-width: 80vh;
 }
 
 .great{

@@ -3,16 +3,19 @@ import Map from './Maps';
 import image1 from './images/Pictures/2023.jpg';
 
 import './app.css';
-
-function Frontend_New(){
-  return(
-  <div className='bg'>
-
-  </div>
-  )
-}
+import './Frontend.css';
 
 function Frontend(){
+  return(
+  <div className='bg'>
+    <div className='YellowContainer'>
+      <Map imageclassname='Map' titleclassname="title" imagePath={image1} year={"Kaart Rotterdam"}></Map>
+    </div>
+  </div>
+  ) 
+}
+
+function Frontend_old(){
     return (
   <div className="App">
       <div className="mapgridbackground">

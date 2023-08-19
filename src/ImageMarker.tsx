@@ -5,6 +5,7 @@ import PictureSlider from './PictureSlider';
 import MarkerIMG from "./images/Marker.png";
 import Loader from "./3DLoader";
 import {data} from "./images/Pictures/FileData"
+import image1 from './images/Pictures/2023.jpg';
 //NIET OP DE AFBEELDINGEN LETTEN
 
 type MarkerProps={
@@ -33,8 +34,12 @@ const Marker: React.FC<MarkerProps> = ({className,source,x,y,size,model}) => {
         MarkerRef.current?.classList.toggle("hidden");
     }
     return(
-        <div className="pos" style={{width:size.width,height:size.height}} onResize={fix}>
+        <div className='decoyMapContainer'>
+            
+            <img className='DecoyMap' src={image1}></img>
             <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps} ref={MarkerRef} style={{left:x,top:y}}/>
+            
+            
             <div className="great" ref={greatRef}>
             <p className={visible? "Back hidden":"Back"} onClick={ShowMaps}>X</p>
                 <PictureSlider source={source} visible={visible}></PictureSlider>
