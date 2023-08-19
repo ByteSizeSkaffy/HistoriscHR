@@ -6,22 +6,25 @@ import MarkerIMG from "./images/Marker.png";
 import PictureSlider from './PictureSlider';
 import Loader from './3DLoader';
 import * as fs from "fs";
-import thedata from "./markerInfo.json"
+import thedata from "./MarkerInfo.json"
 
 
 function AddMarker(){
     const [visible,setVisible] = useState(true);
+    const [adding,setAdd]=useState(false)
+    const OpenPhotoWindow = ()=> {setAdd((adding)=>!adding)}
     const vis = ()=> {setVisible(true)}
     const [rerender, setReRender] = useState(false);
     const [nameValue,setnameValue] = useState('')
-    const [sourceList, setSource] = useState(['']);
+    const [sourceList, setSource] = useState([{"path":"","year":""}]);
+
     function addtoSource(){
-        var image=fileRef.current?.value
+        var image=value
         if (image!=null){
-            console.log(image)
             var tempList=sourceList
-            if (tempList[0]==''){tempList[0]=image}
-            else{tempList.push(image)}
+            if (sourceList[0].path===""){tempList[0]={"path":image,"year":"1999"}}
+            else{tempList.push({"path":image,"year":"1999"})}
+            console.log(tempList)
             setSource(tempList)
         }
     }
@@ -31,6 +34,13 @@ function AddMarker(){
     const [MrkYValue,setMrkYV]=useState("10")
     const Yupdate = (e: React.ChangeEvent<HTMLInputElement>) => setMrkYV(e.target.value);
 
+    function photoRender(){
+        const returnList:JSX.Element[]=[]
+        sourceList.forEach(image => {
+            returnList.push(<img className="previewImage"src={image.path}></img>)
+        });
+        return (returnList)
+    }
 
     
 
@@ -56,9 +66,6 @@ function AddMarker(){
     function preview(){
         setVisible(!visible)
     }
-    function OpenPhotoWindow(){
-
-    }
     const [value,setValue] = useState('')
     const Oninput = (e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
     const OnNameinput = (e: React.ChangeEvent<HTMLInputElement>) => setnameValue(e.target.value);
@@ -71,15 +78,13 @@ function AddMarker(){
                 <img src={MarkerIMG} draggable="false" className='smaller' style={{top:`${MrkYValue}%`,left:`${MrkXValue}%`}}></img>
                 
                 </div>
-                <div className={!visible?'inputBox hidden':"inputbox"}>
+                <div className={!visible?'inputBox hidden':"inputBox"}>
                     Name:
                     <input value={nameValue} onInput={OnNameinput}></input>
                     X-Coördinate:
-                    <input type='number'  onInput={refresh} step="0.5" defaultValue={20} className='X'max="99" min="0"></input>
+                    <input type='number' value={MrkXValue} onInput={Xupdate} step="0.5" defaultValue={20} className='X'max="99" min="0"></input>
                     Y-Coördinate:
-                    <input type='number'  onInput={refresh} step="1" defaultValue={10}className='Y'max="95" min="0"></input>
-                    Link to the file: 
-                    <input ref={fileRef} value={value} onInput={Oninput} name="Photos" ></input>
+                    <input type='number' value={MrkYValue} onInput={Yupdate} step="1" defaultValue={10}className='Y'max="95" min="0"></input>
                     
                     <button onClick={OpenPhotoWindow}>addphoto</button>
                     <p></p>
@@ -87,11 +92,22 @@ function AddMarker(){
                     <button onClick={preview}>Preview</button>
                 </div>
                 <div className={visible? 'previewContainer hidden':"previewContainer"}>
-                <p className={visible? "Back hidden":"Back"} onClick={vis}>X</p>
-                <PictureSlider source={sourceList} visible={visible}></PictureSlider>
-                <Loader visible={visible}modelpath={"https://ipfs.io/ipfs/QmYqwNYxqmu4z39emTo7h9D62rbwm1esAmbAf2PctAyUvu?filename=Flamingo.glb"}></Loader>
+                    <p className={visible? "Back hidden":"Back"} onClick={vis}>X</p>
+                    <PictureSlider source={sourceList} visible={visible}></PictureSlider>
+                    <Loader visible={visible}modelpath={"https://ipfs.io/ipfs/QmYqwNYxqmu4z39emTo7h9D62rbwm1esAmbAf2PctAyUvu?filename=Flamingo.glb"}></Loader>
                 </div>
-                
+                <div className={adding?'addBox':" hiddenaddBox"}>
+                    Year the picture was taken in: 
+                    <div className='yearBox'><input type="number"></input></div>
+                    
+                    Link to the file: 
+                    <div className='linkBox'><input ref={fileRef} value={value} onInput={Oninput} name="Photos" ></input></div>
+                    Pictures:
+                    <div className='imageBox'>
+                        {photoRender()}
+                    </div>
+                    <button onClick={() => {addtoSource();refresh()}}>Add</button>
+                </div>
                 
             </div>
         </div>

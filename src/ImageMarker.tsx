@@ -32,7 +32,16 @@ const Marker: React.FC<MarkerProps> = ({className,source,x,y,size,model}) => {
         document.body.classList.toggle("scroll");
         MarkerRef.current?.classList.toggle("hidden");
     }
-
+    return(
+        <div className="pos" style={{width:size.width,height:size.height}} onResize={fix}>
+            <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps} ref={MarkerRef} style={{left:x,top:y}}/>
+            <div className="great" ref={greatRef}>
+            <p className={visible? "Back hidden":"Back"} onClick={ShowMaps}>X</p>
+                <PictureSlider source={source} visible={visible}></PictureSlider>
+                <Loader visible={visible}modelpath={model}></Loader>
+            </div>
+        </div>
+    )
     return(
         <div className="great" ref={greatRef}>
             <div className="pos" style={{width:size.width,height:size.height}} onResize={fix}>
