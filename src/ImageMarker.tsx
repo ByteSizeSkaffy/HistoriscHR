@@ -6,6 +6,7 @@ import MarkerIMG from "./images/Marker.png";
 import Loader from "./3DLoader";
 import {data} from "./images/Pictures/FileData"
 import image1 from './images/Pictures/2023.jpg';
+
 //NIET OP DE AFBEELDINGEN LETTEN
 
 type MarkerProps={

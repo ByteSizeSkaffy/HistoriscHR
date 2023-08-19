@@ -5,8 +5,8 @@ import {useRef,useState} from "react";
 import MarkerIMG from "./images/Marker.png";
 import PictureSlider from './PictureSlider';
 import Loader from './3DLoader';
-import * as fs from "fs";
 import thedata from "./MarkerInfo.json"
+import MarkerData from './MarkerData';
 
 
 function AddMarker(){
@@ -60,8 +60,7 @@ function AddMarker(){
         console.log(dataObj)
         
         console.log(thedata)
-        
-        
+        MarkerData.updateState(dataObj)
     }
     function preview(){
         setVisible(!visible)

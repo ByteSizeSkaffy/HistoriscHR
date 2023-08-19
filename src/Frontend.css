@@ -6,7 +6,7 @@
 .YellowContainer{
   box-shadow:  -2px 30px 19px 1px rgba(81, 72, 20, 0.655);
   border-radius: 10rem;
-  height: 44.5rem;
+  height: 90vh;
   background-color: #f6dc58;
   transition: ease 3s;
 }
@@ -33,6 +33,13 @@
   z-index: -0;
   transition: ease 0.5s;
 }
+.closedtitle{
+  left: 40%;
+  position: relative;
+  float: middle;
+  color: #ffffff;
+  max-width: 10%;
+}
 .closed{
   position: relative;
   max-width: 60%;
@@ -40,6 +47,10 @@
   transition: ease 0.5s;
 }
 .title{
+  position: absolute;
   float: middle;
   color: #ffffff;
+  left:60vw;
+  top:93vh;
+  max-width: 10%;
 }
