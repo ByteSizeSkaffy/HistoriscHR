@@ -37,7 +37,16 @@ class stateContainer extends React.Component<MyState>{
         "x":"52%",
         "y":"45%",
         "model":"https://ipfs.io/ipfs/QmYqwNYxqmu4z39emTo7h9D62rbwm1esAmbAf2PctAyUvu?filename=Flamingo.glb"
-        }]
+        },
+        {"name":"Stadhuis_Oud",
+        "source":[
+            {"path":require("./images/Pictures/Stadh_Oud_1607.jpg"),"year":"1607"},
+            {"path":require("./images/Pictures/Stadh_Oud_1782.jpg"),"year":"1782"},
+            {"path":require("./images/Pictures/Stadh_Oud_1867.jpg"),"year":"1867"}
+        ],
+        "x":"45%",
+        "y":"22%",
+        "model":"https://ipfs.io/ipfs/QmYqwNYxqmu4z39emTo7h9D62rbwm1esAmbAf2PctAyUvu?filename=Flamingo.glb"}]
     };
     static setDataState(mar:{ name: string; source: { path: string; year: string; }[]; x: string; y: string; model: string; }[]){
       this.state={Markers:mar}
