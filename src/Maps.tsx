@@ -65,7 +65,7 @@ const Map: React.FC<MapProps> = ({imageclassname, titleclassname, imagePath, yea
     var markList:JSX.Element[]=[]
     if(stateContainer.state!=null){
     stateContainer.state.Markers.forEach(marker => {
-      markList.push(<Marker className={clicked? "Marker intro":"Hidden Marker"} source={marker.source} x={marker.x} y={marker.y} size={imgSize} model={marker.model}/>)
+      markList.push(<Marker className={clicked? "Marker intro":"Hidden Marker"} source={marker.source} x={marker.x} y={marker.y} size={imgSize} model={marker.model} name={marker.name}/>)
     });
     return markList
     }

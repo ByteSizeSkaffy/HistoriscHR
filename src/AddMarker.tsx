@@ -119,7 +119,7 @@ function AddMarker(){
                     {!visible?modelHandler(visible):emptyFunc()}
                 </div>
                 <div className={modelWindow?'addBox':"hiddenaddBox"}>
-                    <p className='Back' onClick={OpenModelWindow}>X</p>
+                    <p className='Backk' onClick={OpenModelWindow}>X</p>
                     <input onInput={OnModelInput} value={model}></input>
                     <button onClick={modelSource}>Set Model</button>
                     
@@ -129,7 +129,7 @@ function AddMarker(){
                     
                 </div>
                 <div className={adding?'addBox':" hiddenaddBox"}>
-                    <p className='Back' onClick={OpenPhotoWindow}>X</p>
+                    <p className='Backk' onClick={OpenPhotoWindow}>X</p>
                     Year the picture was taken in: 
                     <div className='yearBox'><input type="number"></input></div>
                     

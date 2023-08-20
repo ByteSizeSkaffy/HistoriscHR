@@ -20,9 +20,10 @@ type MarkerProps={
         width: number;
         height: number;
     };
+    name:string;
 }
 
-const Marker: React.FC<MarkerProps> = ({className,source,x,y,size,model}) => {
+const Marker: React.FC<MarkerProps> = ({className,source,x,y,size,model,name}) => {
     const greatRef=useRef<HTMLDivElement>(null);
     const MarkerRef=useRef<HTMLImageElement>(null);
     const [rerender, setReRender] = useState(false);
@@ -44,7 +45,9 @@ const Marker: React.FC<MarkerProps> = ({className,source,x,y,size,model}) => {
             
         </div>
         <div className="great" ref={greatRef}>
+            
             <p className={visible? "Back hidden":"Back"} onClick={ShowMaps}>X</p>
+                <p className={visible?'hidden nam':"nam"}>{name}</p>
                 <PictureSlider source={source} visible={visible}></PictureSlider>
                 <Suspense fallback={<Loader visible={visible}modelpath={"https://ipfs.io/ipfs/QmYqwNYxqmu4z39emTo7h9D62rbwm1esAmbAf2PctAyUvu?filename=Flamingo.glb"}></Loader>
             }><ErrorBoundary><Loader visible={visible}modelpath={model}></Loader></ErrorBoundary></Suspense>
