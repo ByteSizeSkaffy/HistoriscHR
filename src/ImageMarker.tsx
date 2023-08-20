@@ -1,11 +1,12 @@
 import React from 'react';
-import {useState,useRef} from 'react';
+import {useState,useRef,Suspense} from 'react';
 import "./Marker.css"
 import PictureSlider from './PictureSlider';
 import MarkerIMG from "./images/Marker.png";
 import Loader from "./3DLoader";
 import {data} from "./images/Pictures/FileData"
 import image1 from './images/Pictures/2023.jpg';
+import ErrorBoundary from './ErrorBoundary';
 
 //NIET OP DE AFBEELDINGEN LETTEN
 
@@ -35,16 +36,18 @@ const Marker: React.FC<MarkerProps> = ({className,source,x,y,size,model}) => {
         MarkerRef.current?.classList.toggle("hidden");
     }
     return(
+        <div>
         <div className='decoyMapContainer'>
             
             <img className='DecoyMap' src={image1}></img>
             <img className={className} src={MarkerIMG} alt={"dispenser"} onClick={ShowMaps} ref={MarkerRef} style={{left:x,top:y}}/>
             
-            
-            <div className="great" ref={greatRef}>
+        </div>
+        <div className="great" ref={greatRef}>
             <p className={visible? "Back hidden":"Back"} onClick={ShowMaps}>X</p>
                 <PictureSlider source={source} visible={visible}></PictureSlider>
-                <Loader visible={visible}modelpath={model}></Loader>
+                <Suspense fallback={<Loader visible={visible}modelpath={"https://ipfs.io/ipfs/QmYqwNYxqmu4z39emTo7h9D62rbwm1esAmbAf2PctAyUvu?filename=Flamingo.glb"}></Loader>
+            }><ErrorBoundary><Loader visible={visible}modelpath={model}></Loader></ErrorBoundary></Suspense>
             </div>
         </div>
     )
